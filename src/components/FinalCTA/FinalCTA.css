@@ -1,0 +1,155 @@
+/* ==========================================================================
+   IKIGAI.DELHI V3 — FINAL CTA STYLING
+   Symmetrical Mirror to Hero: 4 Converged Circles + Gradual Fade Toward Black
+   ========================================================================== */
+
+.final-cta-section {
+  position: relative;
+  background-color: transparent;
+  padding-bottom: 7rem;
+  overflow: hidden;
+}
+
+/* Atmospheric dark gradient wash fading to black */
+.final-cta-fade-backdrop {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  background: linear-gradient(180deg, transparent 0%, rgba(17, 17, 17, 0.4) 40%, rgba(10, 10, 10, 0.88) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.final-cta-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3.5rem;
+}
+
+/* Converged Circles Visualization */
+.final-converged-circles-stage {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 24px rgba(182, 83, 60, 0.2));
+}
+
+.final-circles-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Closing Content Block */
+.final-cta-content-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 780px;
+}
+
+.final-anchor-row {
+  margin-bottom: 0.25rem;
+}
+
+.final-context-tag {
+  color: var(--color-accent-gold);
+  letter-spacing: 0.18em;
+}
+
+.final-mirror-title {
+  font-size: clamp(2.6rem, 6.5vw, 5.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #F5F1E8;
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.6);
+}
+
+.final-lead-copy {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.75;
+  color: rgba(245, 241, 232, 0.75);
+  max-width: 620px;
+}
+
+/* Primary & Secondary Dual CTAs */
+.final-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.final-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  background-color: var(--color-accent-vermilion);
+  color: #F5F1E8;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  transition: all 180ms ease;
+  box-shadow: 0 4px 20px rgba(182, 83, 60, 0.4);
+}
+
+.final-primary-btn:hover {
+  background-color: #c95f47;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(182, 83, 60, 0.55);
+}
+
+.final-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background-color: transparent;
+  border: 1px solid rgba(245, 241, 232, 0.35);
+  color: #F5F1E8;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  transition: all 180ms ease;
+}
+
+.final-secondary-btn:hover {
+  border-color: var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  transform: translateY(-2px);
+  background-color: rgba(200, 169, 107, 0.08);
+}
+
+.final-status-footnote {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
+  color: rgba(245, 241, 232, 0.5);
+}
+
+.status-dot-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent-gold);
+  box-shadow: 0 0 8px var(--color-accent-gold);
+}

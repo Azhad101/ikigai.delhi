@@ -1,0 +1,76 @@
+/* ==========================================================================
+   IKIGAI.DELHI V3 — DESIGN TOKENS & SYSTEM VARIABLES
+   Japanese Editorial Design: Warm Ivory Canvas + Ink Black + Deep Forest + Muted Vermilion + Soft Gold
+   ========================================================================== */
+
+:root {
+  /* Warm Ivory — Primary Canvas Foundation */
+  --color-bg-primary: #F5F1E8;
+  --color-bg-surface: #FAF7F2;
+  --color-bg-subtle: #ECE6D9;
+  --color-bg-dark: #E2DBD0;
+  --color-bg-overlay: rgba(245, 241, 232, 0.88);
+
+  /* Deep Forest — Contemplative Contrast Sections */
+  --color-forest: #26382F;
+  --color-forest-dark: #1A2821;
+  --color-forest-subtle: #32493E;
+  --color-forest-tint: #405C4E;
+
+  /* Ink Black — High-Contrast Editorial Typography and Structural Lines */
+  --color-ink: #111111;
+  --color-ink-body: #2A2724;
+  --color-ink-muted: #5C5852;
+  --color-ink-faint: #6B655C;
+
+  /* Text on Forest / Dark Sections */
+  --color-forest-text: #F5F1E8;
+  --color-forest-muted: #9EAEA4;
+  --color-forest-hairline: rgba(245, 241, 232, 0.12);
+
+  /* Muted Vermilion — Central Sun, Primary CTAs, Active Marks */
+  --color-accent-vermilion: #B6533C;
+  --color-accent-vermilion-hover: #C84A3A;
+  --color-accent-vermilion-soft: rgba(182, 83, 60, 0.14);
+  --color-accent-vermilion-tint: #D67A66;
+
+  /* Soft Gold — Subtle Highlights, Reticle Axes, Dawn Accents */
+  --color-accent-gold: #C8A96B;
+  --color-accent-gold-soft: rgba(200, 169, 107, 0.16);
+  --color-accent-gold-light: #DFCA98;
+
+  /* Jade — Subdued Secondary Accent */
+  --color-accent-jade: #638472;
+
+  /* Hairlines on Warm Ivory */
+  --color-hairline: rgba(17, 17, 17, 0.10);
+  --color-hairline-strong: rgba(17, 17, 17, 0.22);
+  --color-hairline-vermilion: rgba(182, 83, 60, 0.35);
+
+  /* Typography Font Stacks */
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-japanese: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Layout & Grid Rhythm */
+  --container-max-width: 1320px;
+  --nav-height: 70px;
+  --gutter-mobile: 20px;
+  --gutter-desktop: 48px;
+
+  /* Snappy 60fps Motion Curves & Durations */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  --motion-fast: 160ms;
+  --motion-medium: 380ms;
+  --motion-slow: 720ms;
+
+  /* Z-index layering */
+  --z-background: -10;
+  --z-canvas: 1;
+  --z-content: 10;
+  --z-nav: 100;
+  --z-overlay: 200;
+}

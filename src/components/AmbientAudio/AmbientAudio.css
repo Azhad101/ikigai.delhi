@@ -1,0 +1,65 @@
+/* ==========================================================================
+   IKIGAI.DELHI V3 — AMBIENT AUDIO TOGGLE
+   A quiet, persistent control for the background score
+   ========================================================================== */
+
+.ambient-audio-toggle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 300;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 50%;
+  border: 1px solid var(--color-hairline-strong);
+  background-color: var(--color-bg-surface);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(17, 17, 17, 0.12);
+  transition: all 220ms var(--ease-editorial);
+}
+
+.ambient-audio-toggle:hover {
+  border-color: var(--color-accent-vermilion);
+  transform: translateY(-2px);
+}
+
+.ambient-audio-bar {
+  width: 3px;
+  height: 8px;
+  border-radius: 2px;
+  background-color: var(--color-ink-muted);
+  transition: all 220ms var(--ease-editorial);
+}
+
+.ambient-audio-toggle.is-playing .ambient-audio-bar {
+  background-color: var(--color-accent-vermilion);
+  animation: ambient-audio-wave 900ms ease-in-out infinite;
+}
+
+.ambient-audio-toggle.is-playing .ambient-audio-bar:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.ambient-audio-toggle.is-playing .ambient-audio-bar:nth-child(2) {
+  height: 14px;
+  animation-delay: 150ms;
+}
+
+.ambient-audio-toggle.is-playing .ambient-audio-bar:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+@keyframes ambient-audio-wave {
+  0%, 100% { transform: scaleY(0.5); }
+  50% { transform: scaleY(1.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-audio-toggle.is-playing .ambient-audio-bar {
+    animation: none;
+  }
+}

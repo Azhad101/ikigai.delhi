@@ -1,0 +1,34 @@
+/* ==========================================================================
+   IKIGAI.DELHI V3 — A NOTE ON INTELLECTUAL HONESTY
+   A single contemplative forest pause between the Orb and The Two Ikigais.
+   ========================================================================== */
+
+.honesty-section {
+  position: relative;
+}
+
+.honesty-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 860px;
+}
+
+.honesty-anchor-row {
+  margin-bottom: 0.25rem;
+}
+
+.honesty-tag {
+  color: var(--color-accent-gold-light);
+}
+
+.honesty-statement {
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.honesty-body {
+  max-width: 760px;
+  color: var(--color-forest-muted);
+}

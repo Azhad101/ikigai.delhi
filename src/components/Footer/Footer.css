@@ -1,0 +1,188 @@
+/* ==========================================================================
+   IKIGAI.DELHI V3 — EDITORIAL FOOTER STYLING
+   Minimal Editorial: Clean Typography, Restrained Links & Verified Meta
+   ========================================================================== */
+
+.footer-editorial {
+  position: relative;
+  border-top: 1px solid var(--color-hairline);
+  background-color: var(--color-bg-primary);
+  padding: 4.5rem 0 3rem 0;
+  color: var(--color-ink);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* Top Row */
+.footer-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 320px;
+}
+
+.footer-brand-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-ink);
+}
+
+.footer-brand-title .brand-dot {
+  color: var(--color-accent-vermilion);
+}
+
+.footer-kanji-tag {
+  font-size: 1.1rem;
+  color: var(--color-accent-vermilion);
+  opacity: 0.85;
+}
+
+.footer-purpose-tag {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--color-ink-muted);
+}
+
+/* Nav Groups */
+.footer-nav-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.5rem;
+}
+
+.footer-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.footer-group-heading {
+  color: var(--color-accent-gold);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+}
+
+.footer-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.footer-nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--color-ink-body);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.footer-nav-link:hover {
+  color: var(--color-accent-vermilion);
+}
+
+/* Icon Row (WhatsApp / Discord / Instagram / Email / Phone) */
+.footer-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.footer-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-hairline-strong);
+  color: var(--color-ink-body);
+  text-decoration: none;
+  transition: color 180ms ease, border-color 180ms ease, transform 180ms ease, background-color 180ms ease;
+}
+
+.footer-icon-link svg {
+  width: 17px;
+  height: 17px;
+}
+
+.footer-icon-link:hover {
+  color: var(--color-bg-primary);
+  background-color: var(--color-accent-vermilion);
+  border-color: var(--color-accent-vermilion);
+  transform: translateY(-2px);
+}
+
+.footer-contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+}
+
+.footer-contact-line {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  color: var(--color-ink-body);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.footer-contact-line:hover {
+  color: var(--color-accent-vermilion);
+}
+
+.footer-meta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.footer-meta-item {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+}
+
+/* Bottom Bar */
+.footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  border-top: 1px solid var(--color-hairline);
+  padding-top: 1.75rem;
+}
+
+.footer-legal-copy {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.08em;
+}
+
+.footer-craft-copy {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--color-accent-gold);
+  letter-spacing: 0.12em;
+}

@@ -1,0 +1,168 @@
+/* ==========================================================================
+   IKIGAI.DELHI V3 — THE CREATIVE MASTHEAD
+   Editorial Crew Directory: Warm Ivory Canvas, Duotone Portraits, Clean Grid
+   ========================================================================== */
+
+.masthead-section {
+  position: relative;
+  background-color: transparent;
+}
+
+.masthead-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* Header Block */
+.masthead-header-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 760px;
+}
+
+.masthead-anchor-row {
+  margin-bottom: 0.25rem;
+}
+
+.masthead-context-tag {
+  color: var(--color-accent-vermilion);
+}
+
+.masthead-main-title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.05;
+  color: var(--color-ink);
+}
+
+.masthead-main-title em {
+  font-style: italic;
+  color: var(--color-accent-vermilion);
+}
+
+.masthead-subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--color-ink-body);
+  max-width: 620px;
+}
+
+/* Crew Grid */
+.crew-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .crew-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .crew-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .crew-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.crew-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-hairline-strong);
+  background-color: var(--color-bg-surface);
+  overflow: hidden;
+  transition: all 220ms var(--ease-editorial);
+  box-shadow: 0 2px 8px rgba(17, 17, 17, 0.03);
+}
+
+.crew-card:hover {
+  border-color: var(--color-ink);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(17, 17, 17, 0.09);
+}
+
+.crew-card-portrait {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--color-forest);
+}
+
+.crew-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(1) contrast(1.05) brightness(0.98);
+  transition: filter 420ms var(--ease-editorial), transform 420ms var(--ease-editorial);
+}
+
+.crew-card:hover .crew-card-photo {
+  filter: grayscale(0.15) contrast(1.05) brightness(1);
+  transform: scale(1.035);
+}
+
+.crew-card-initials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--color-forest) 0%, var(--color-forest-dark) 100%);
+}
+
+.crew-card-initials span {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 500;
+  color: var(--color-forest-text);
+  opacity: 0.9;
+  letter-spacing: 0.04em;
+}
+
+.crew-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.85rem 0.85rem 1rem;
+  border-top: 1px solid var(--color-hairline);
+}
+
+.crew-card-number {
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  color: var(--color-accent-vermilion);
+}
+
+.crew-card-dot {
+  color: var(--color-ink-faint);
+}
+
+.crew-card-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+.crew-card-role {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}

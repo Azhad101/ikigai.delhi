@@ -1,0 +1,124 @@
+/* ==========================================================================
+   IKIGAI.DELHI V3 — BOOT SEQUENCE
+   A ~5s converging-circles intro on the philosophy of ikigai
+   ========================================================================== */
+
+.boot-sequence {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 45%, var(--color-forest-subtle) 0%, var(--color-forest-dark) 78%);
+  cursor: pointer;
+}
+
+body.boot-lock {
+  overflow: hidden;
+}
+
+.boot-inner {
+  position: relative;
+  width: min(320px, 78vw);
+  height: min(320px, 78vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Four converging questions, positioned like compass points */
+.boot-compass {
+  position: absolute;
+  inset: 0;
+}
+
+.boot-word {
+  position: absolute;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--color-forest-text);
+  white-space: nowrap;
+}
+
+.boot-word-love {
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-accent-vermilion-tint);
+}
+
+.boot-word-skill {
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+  color: var(--color-accent-gold-light);
+}
+
+.boot-word-need {
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-forest-muted);
+}
+
+.boot-word-reward {
+  top: 50%;
+  left: 2%;
+  transform: translateY(-50%);
+  color: var(--color-bg-primary);
+}
+
+.boot-center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: var(--color-accent-gold);
+  box-shadow: 0 0 18px 4px var(--color-accent-vermilion-soft);
+}
+
+/* Resolved mark: kanji + wordmark + tagline, centered over the compass */
+.boot-resolve {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.boot-kanji {
+  font-family: var(--font-japanese);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  letter-spacing: 0.12em;
+  color: var(--color-forest-text);
+}
+
+.boot-wordmark {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+  letter-spacing: 0.06em;
+  color: var(--color-accent-vermilion-tint);
+}
+
+.boot-tagline {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--color-forest-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-sequence {
+    display: none;
+  }
+}

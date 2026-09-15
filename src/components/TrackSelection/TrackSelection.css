@@ -1,0 +1,320 @@
+/* ==========================================================================
+   IKIGAI.DELHI V3 — FIELD SELECTION
+   "Choose Your Field": editorial card grid for the five creative languages.
+   ========================================================================== */
+
+.track-selection-section {
+  position: relative;
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+  background-color: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.track-selection-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 820px;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.track-selection-anchor-row {
+  margin-bottom: 0.25rem;
+}
+
+.track-selection-tag {
+  color: var(--color-ink-muted);
+}
+
+.track-selection-title {
+  letter-spacing: -0.01em;
+}
+
+.track-selection-subtitle {
+  max-width: 720px;
+  color: var(--color-ink-muted);
+}
+
+/* Grid Container */
+.track-grid-container {
+  position: relative;
+}
+
+.track-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1400px) {
+  .track-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .track-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .track-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Individual Track Card */
+.track-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.75rem 2.25rem;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-hairline);
+  transition: background-color var(--motion-medium) var(--ease-editorial), border-color var(--motion-medium) var(--ease-editorial);
+}
+
+.track-card:hover {
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-hairline-strong);
+}
+
+/* Large faint Japanese watermark, echoing the domain-card background glyphs */
+.track-card-watermark {
+  position: absolute;
+  top: -0.35em;
+  right: -0.1em;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--color-ink);
+  opacity: 0.05;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: 0;
+}
+
+.track-card-top-row,
+.track-card-category,
+.track-card-title,
+.track-card-facts,
+.track-card-desc,
+.track-card-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.track-card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+
+.track-card-num {
+  color: var(--color-accent-vermilion);
+}
+
+/* Small circular kanji seal, echoing the domain-card orb icon */
+.track-card-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-hairline-strong);
+  font-size: 1.05rem;
+  color: var(--color-ink-muted);
+  background-color: var(--color-bg-primary);
+  flex-shrink: 0;
+}
+
+.track-card-category {
+  color: var(--color-ink-faint);
+  margin-bottom: 0.6rem;
+}
+
+.track-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: var(--color-ink);
+  margin-bottom: 1.1rem;
+}
+
+.track-card-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.1rem;
+}
+
+.track-card-fact-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.track-card-fact-row dt {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+}
+
+.track-card-fact-row dd {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-ink-body);
+  margin: 0;
+}
+
+.track-card-desc {
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.track-card-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-hairline-vermilion);
+}
+
+.track-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-vermilion);
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  transition: color var(--motion-medium) var(--ease-editorial);
+}
+
+.track-card-link:hover,
+.track-card-link:focus-visible {
+  color: var(--color-ink);
+}
+
+.track-card-link:focus-visible {
+  outline: 2px solid var(--color-accent-vermilion);
+  outline-offset: 3px;
+}
+
+/* Expanded state: card takes the full row to reveal its in-depth panel */
+.track-card-expanded {
+  grid-column: 1 / -1;
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-accent-vermilion);
+}
+
+/* In-depth detail panel: height-animated via the grid-rows trick so no
+   JS height measurement is needed and surrounding cards never jump. */
+.track-card-detail-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--motion-medium, 0.45s) var(--ease-editorial, ease);
+}
+
+.track-card-expanded .track-card-detail-wrap {
+  grid-template-rows: 1fr;
+}
+
+.track-card-detail-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.track-card-detail-text {
+  padding-top: 1.25rem;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--color-hairline);
+  margin-bottom: 1.25rem;
+}
+
+.track-card-examples {
+  margin-bottom: 1.25rem;
+}
+
+.track-card-sublabel {
+  display: block;
+  color: var(--color-accent-gold);
+  margin-bottom: 0.6rem;
+}
+
+.track-card-examples-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--color-ink-body);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.track-card-pairs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-hairline);
+  margin-bottom: 1.25rem;
+}
+
+.track-card-pairs-value {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-ink-body);
+}
+
+/* Collaboration Note — fields are languages, not silos */
+.track-collab-container {
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.track-collab-note {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: clamp(2rem, 4vw, 3rem) 0 0;
+  border-top: 1px solid var(--color-hairline);
+  text-align: center;
+}
+
+.track-collab-anchor-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.track-collab-lead {
+  color: var(--color-ink);
+  margin-bottom: 0.35rem;
+}
+
+.track-collab-line {
+  color: var(--color-ink-muted);
+  margin-bottom: 0.35rem;
+}
+
+.track-collab-line:last-child {
+  margin-top: 0.75rem;
+  color: var(--color-ink);
+  font-style: italic;
+}
