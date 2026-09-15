@@ -1,0 +1,219 @@
+.date-alert-section {
+  position: relative;
+  z-index: var(--z-content);
+  padding: 90px 0;
+}
+
+.date-alert-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 52px 56px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-hairline);
+  border-left: 3px solid var(--color-accent-vermilion);
+  box-shadow: 0 20px 60px rgba(17, 17, 17, 0.06);
+}
+
+/* ---------- The hanging wind bell ---------- */
+.alert-bell-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: stretch;
+  min-height: 300px;
+}
+
+.alert-bell-halo {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  transform: translate(-50%, -18%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(182, 83, 60, 0.13) 0%,
+    rgba(200, 169, 107, 0.08) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.alert-bell-img {
+  position: relative;
+  width: auto;
+  height: 320px;
+  max-width: 100%;
+  object-fit: contain;
+  /* Swing from the very top of the cord, like a real hanging fūrin */
+  transform-origin: 50% 0%;
+  animation: bellSway 5.2s ease-in-out infinite;
+  filter: drop-shadow(0 12px 22px rgba(17, 17, 17, 0.18));
+}
+
+@keyframes bellSway {
+  0%   { transform: rotate(-2.6deg); }
+  50%  { transform: rotate(2.6deg); }
+  100% { transform: rotate(-2.6deg); }
+}
+
+/* ---------- Copy column ---------- */
+.alert-anchor-row { margin-bottom: 18px; }
+
+.alert-context-tag {
+  display: block;
+  color: var(--color-accent-vermilion);
+  letter-spacing: 0.24em;
+  font-size: 0.68rem;
+}
+
+.alert-title {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4.4vw, 3rem);
+  line-height: 1.1;
+  color: var(--color-ink);
+}
+
+.alert-title-accent { color: var(--color-accent-vermilion); }
+
+.alert-desc {
+  margin-top: 16px;
+  max-width: 540px;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--color-ink-muted);
+}
+
+/* ---------- Input ---------- */
+.alert-input-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 26px;
+  max-width: 540px;
+}
+
+.alert-input {
+  flex: 1;
+  min-width: 0;
+  padding: 15px 18px;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--color-ink);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-hairline-strong);
+  border-radius: 2px;
+  outline: none;
+  transition: border-color var(--motion-fast) var(--ease-smooth);
+}
+
+.alert-input::placeholder { color: var(--color-ink-faint); }
+
+.alert-input:focus {
+  border-color: var(--color-accent-vermilion);
+  box-shadow: 0 0 0 3px var(--color-accent-vermilion-soft);
+}
+
+.alert-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 26px;
+  white-space: nowrap;
+  background: var(--color-accent-vermilion);
+  border: 1px solid var(--color-accent-vermilion);
+  border-radius: 2px;
+  color: #FFF8F2;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+  transition: transform var(--motion-fast) var(--ease-smooth),
+              background var(--motion-fast) var(--ease-smooth);
+}
+
+.alert-submit-btn:hover:not(:disabled) {
+  background: var(--color-accent-vermilion-hover);
+  transform: translateY(-2px);
+}
+
+.alert-submit-btn:disabled { opacity: 0.6; cursor: wait; }
+
+/* ---------- Feedback ---------- */
+.alert-success {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 26px;
+  padding: 18px 22px;
+  max-width: 540px;
+  background: rgba(99, 132, 114, 0.10);
+  border: 1px solid rgba(99, 132, 114, 0.32);
+  border-radius: 2px;
+}
+
+.alert-success-mark {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-accent-jade);
+  color: #FFF8F2;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.alert-success p {
+  font-size: 0.92rem;
+  color: var(--color-ink-body);
+}
+
+.alert-error {
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: var(--color-accent-vermilion);
+}
+
+.alert-error a {
+  color: var(--color-accent-vermilion);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.alert-footnote {
+  margin-top: 16px;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-faint);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .date-alert-card {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 42px 28px;
+    text-align: center;
+  }
+  .alert-bell-stage { min-height: 0; }
+  .alert-bell-img { height: 230px; }
+  .alert-bell-halo { width: 190px; height: 190px; }
+  .alert-anchor-row { display: flex; justify-content: center; }
+  .alert-desc { margin-left: auto; margin-right: auto; }
+  .alert-input-row { flex-direction: column; margin-left: auto; margin-right: auto; }
+  .alert-submit-btn { justify-content: center; }
+  .alert-success { margin-left: auto; margin-right: auto; text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alert-bell-img { animation: none; }
+}
