@@ -1,0 +1,393 @@
+@import "tailwindcss";
+
+@theme {
+  --color-red: #A3262A;
+  --color-cream: #F4E7C6;
+  --color-ink-950: #1C1917;
+  --color-ink-900: #292524;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-jp: "Noto Serif JP", serif;
+}
+
+@layer base {
+  body {
+    background-color: #F4E7C6;
+    color: #A3262A;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #A3262A;
+    color: #F4E7C6;
+  }
+}
+
+.font-editorial {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.font-jp {
+  font-family: "Noto Serif JP", serif;
+}
+
+.font-mono-meta {
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* Subtle printmaking registration crosshair */
+.crosshair-mark {
+  position: relative;
+}
+.crosshair-mark::before,
+.crosshair-mark::after {
+  content: "";
+  position: absolute;
+  background-color: currentColor;
+  opacity: 0.35;
+}
+.crosshair-mark::before {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: translateY(-50%);
+}
+.crosshair-mark::after {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+/* Subtle, cinematic Japanese atmospheric animations */
+@keyframes mistDriftSlow {
+  0% {
+    transform: translateX(0) scaleY(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateX(24px) scaleY(1.05);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateX(0) scaleY(1);
+    opacity: 0.25;
+  }
+}
+
+@keyframes mistDriftReverse {
+  0% {
+    transform: translateX(0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(-30px);
+    opacity: 0.32;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.2;
+  }
+}
+
+@keyframes subtleBranchBreathe {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(0.4deg);
+  }
+}
+
+@keyframes windBellSway {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.animate-wind-bell-sway {
+  animation: windBellSway 4.5s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+
+@keyframes bootFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.boot-fade-up {
+  animation: bootFadeUp 750ms var(--ease-out-expo) both;
+}
+
+.animate-mist-slow {
+  animation: mistDriftSlow 24s ease-in-out infinite;
+}
+
+.animate-mist-reverse {
+  animation: mistDriftReverse 32s ease-in-out infinite;
+}
+
+.animate-branch-breathe {
+  transform-origin: top right;
+  animation: subtleBranchBreathe 18s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-mist-slow,
+  .animate-mist-reverse,
+  .animate-branch-breathe {
+    animation: none !important;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   Seamless motion layer
+   Everything below exists so the site reads as one continuous
+   surface: inertial scroll, a header that melts into each
+   section, soft route changes, and content that arrives
+   instead of popping in.
+   ──────────────────────────────────────────────────────────── */
+
+:root {
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Lenis (smooth scroll) base rules */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* One persistent header, tinted by the section beneath it */
+.site-nav {
+  --nav-bg: #F4E7C6;
+  --nav-fg: #A3262A;
+  color: var(--nav-fg);
+  background-color: color-mix(in srgb, var(--nav-bg) 85%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--nav-fg) 16%, transparent);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  transition:
+    background-color 550ms var(--ease-soft),
+    color 550ms var(--ease-soft),
+    border-color 550ms var(--ease-soft),
+    box-shadow 400ms var(--ease-soft);
+}
+.site-nav[data-theme='crimson'] {
+  --nav-bg: #A3262A;
+  --nav-fg: #F4E7C6;
+}
+.site-nav[data-scrolled='true'] {
+  background-color: color-mix(in srgb, var(--nav-bg) 94%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.nav-cta {
+  color: var(--nav-fg);
+  border: 1px solid color-mix(in srgb, var(--nav-fg) 40%, transparent);
+  transition:
+    background-color 300ms var(--ease-soft),
+    color 300ms var(--ease-soft),
+    border-color 550ms var(--ease-soft);
+}
+.nav-cta:hover {
+  background-color: var(--nav-fg);
+  color: var(--nav-bg);
+}
+
+/* Stacked labels that cross-fade instead of swapping */
+/* (display:grid is set with Tailwind classes on the element itself, so
+   responsive utilities like `hidden sm:grid` keep working) */
+.nav-swap > * {
+  grid-area: 1 / 1;
+  transition:
+    opacity 420ms var(--ease-soft),
+    transform 420ms var(--ease-soft);
+}
+.nav-swap > [data-active='false'] {
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+}
+
+/* Route changes: old page dissolves, new page settles in */
+.page-shell {
+  transition: opacity 260ms var(--ease-soft);
+}
+.page-shell[data-leaving='true'] {
+  opacity: 0;
+  pointer-events: none;
+}
+.page-enter {
+  animation: page-enter 640ms var(--ease-out-expo) backwards;
+}
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Content that arrives as you reach it */
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 900ms var(--ease-soft),
+    transform 1100ms var(--ease-out-expo);
+}
+[data-reveal][data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-shell,
+  .site-nav,
+  .nav-cta,
+  .nav-swap > * {
+    transition: none !important;
+  }
+  .page-enter {
+    animation: none !important;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .boot-fade-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   Seams between sections
+   Rule: every section ENDS in the exact colour the next section
+   STARTS with. "Caps" are soft washes of that colour laid over
+   whatever art touches an edge; ridges are landscape shapes in
+   the next section's colour. Result: no visible line, no cut.
+   ──────────────────────────────────────────────────────────── */
+
+:root {
+  --ridge-h: clamp(120px, 16vw, 230px);
+}
+
+.seam-cream   { --cap-rgb: 244, 231, 198; }
+.seam-crimson { --cap-rgb: 163, 38, 42; }
+
+.seam-cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--cap-h, 56px);
+  pointer-events: none;
+  z-index: 1;
+}
+.seam-cap-top {
+  top: -1px; /* overlap by a pixel so sub-pixel layout never shows a hairline */
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--cap-rgb), 1) 0%,
+    rgba(var(--cap-rgb), 1) 16%,
+    rgba(var(--cap-rgb), 0.82) 38%,
+    rgba(var(--cap-rgb), 0.5) 60%,
+    rgba(var(--cap-rgb), 0.18) 82%,
+    rgba(var(--cap-rgb), 0) 100%
+  );
+}
+.seam-cap-bottom {
+  bottom: -1px;
+  background: linear-gradient(
+    to top,
+    rgba(var(--cap-rgb), 1) 0%,
+    rgba(var(--cap-rgb), 1) 16%,
+    rgba(var(--cap-rgb), 0.82) 38%,
+    rgba(var(--cap-rgb), 0.5) 60%,
+    rgba(var(--cap-rgb), 0.18) 82%,
+    rgba(var(--cap-rgb), 0) 100%
+  );
+}
+/* a longer wash: lets mountains dissolve into mist rather than stop at a line */
+.seam-cap-tall {
+  --cap-h: clamp(130px, 14vw, 200px);
+}
+/* for sections whose bottom art sits above the normal layers */
+.seam-cap-over {
+  z-index: 15;
+  --cap-h: 28px;
+}
+
+.seam-ridge-layer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  z-index: 1;
+  pointer-events: none;
+  line-height: 0;
+}
+.seam-ridge {
+  display: block;
+  width: 100%;
+  height: var(--ridge-h);
+}
+/* keep copy clear of the ridge */
+.seam-pad-bottom {
+  padding-bottom: calc(var(--ridge-h) * 0.7);
+}
+
+/* ── The 48-hour dial (Odyssee section) ── */
+.dial-spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dial-spin 140s linear infinite;
+}
+@keyframes dial-spin {
+  to { transform: rotate(360deg); }
+}
+/* enso: dash = 86% of the circle so the brush leaves its gap; it draws in on reveal */
+.dial-enso      { stroke-dasharray: 562 654; stroke-dashoffset: 562; }
+.dial-enso-thin { stroke-dasharray: 470 668; stroke-dashoffset: 470; }
+[data-revealed='true'] .dial-enso      { animation: enso-draw-a 2.4s var(--ease-out-expo) 0.35s both; }
+[data-revealed='true'] .dial-enso-thin { animation: enso-draw-b 2.8s var(--ease-out-expo) 0.55s both; }
+@keyframes enso-draw-a { from { stroke-dashoffset: 562; } to { stroke-dashoffset: 0; } }
+@keyframes enso-draw-b { from { stroke-dashoffset: 470; } to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .dial-spin { animation: none !important; }
+  .dial-enso, .dial-enso-thin { animation: none !important; stroke-dashoffset: 0 !important; }
+}
